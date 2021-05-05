@@ -9,9 +9,11 @@ Description: different OTU analysis methods
 License: GPL-3
 Encoding: UTF-8
 suggests:
-    testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    dplyr,
+    clime,
+    mvtnorm
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 LazyData: true
