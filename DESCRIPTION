@@ -1,11 +1,11 @@
 Package: clotu
 Type: Package
-Title: clotu
+Title: Classification of OTUs
 Version: 1.0
 Date: 2021-02-07
-Author: Jun Li
+Author: Jun Li <yewei369@gmail.com>
 Maintainer: Jun Li <yewei369@gmail.com>
-Description: different OTU analysis methods
+Description: different OTU classification methods based on Gaussian assumption for non-zero OTUs
 License: GPL-3
 Encoding: UTF-8
 suggests:
@@ -13,7 +13,8 @@ suggests:
     rmarkdown,
     dplyr,
     clime,
-    mvtnorm
+    mvtnorm,
+    gtools
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 LazyData: true

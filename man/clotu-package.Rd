@@ -1,4 +1,4 @@
-\name{clotu-package}
+\name{clotu}
 \alias{clotu-package}
 \alias{clotu}
 \docType{package}
@@ -8,28 +8,26 @@
 \description{
 \packageDescription{clotu}
 }
-\details{
 
-The DESCRIPTION file:
-\packageDESCRIPTION{clotu}
-\packageIndices{clotu}
-~~ An overview of how to use the package, including ~~
-~~ the most important functions ~~
+\details{
+Based on Kaul's assumption that non-zero OTUs follow a Gaussian distribution, this package incorporates the original model and  its mutations with modifications in normalizing OTU counts, shrinking number of OTUs and 3 mutated models of calculating covariances.
 }
+
 \author{
 \packageAuthor{clotu}
-
-Maintainer: \packageMaintainer{clotu}
 }
+
 \references{
-~~ Literature or other references for background information ~~
+A. Kaul, O. Davidov and S. D. Peddada, "Structural zeroes in high-dimensional data with applications to microbiome studies", Biostatistics, vol. 18, no. 3, p. 422-433, 2017. 
+
+Jun Li, "Classification of microbiome data with structural zeroes and small samples", master thesis at Link\"{o}ping University, 2021
 }
 
 \keyword{ package }
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+
 }
+
 \examples{
 
 }

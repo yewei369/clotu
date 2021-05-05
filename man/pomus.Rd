@@ -3,35 +3,20 @@
 \docType{data}
 \name{pomus}
 \alias{pomus}
-\title{pomus}
+\title{Polish Mussel Dataset}
 \format{
-A data frame with 303 OTUs and 18 samples:
+A list consisting of 2 data frames: otu, 693 OTUs by 108 samples; meta, information about 108 samples
 \describe{
-  \item{C1Wf}{1st gut sample of female in Czarna Hańcza}
-  \item{C2Wf}{2nd gut sample of female in Czarna Hańcza}
-  \item{C3Wf}{3rd gut sample of female in Czarna Hańcza}
-  \item{C4Wm}{4th gut sample of male in Czarna Hańcza}
-  \item{C5Wm}{5th gut sample of male in Czarna Hańcza}
-  \item{C6Wm}{6th gut sample of male in Czarna Hańcza}
-  \item{P1Wf}{1st gut sample of female in Pilica river}
-  \item{P2Wf}{2nd gut sample of female in Pilica river}
-  \item{P3Wf}{3rd gut sample of female in Pilica river}
-  \item{P4Wm}{4th gut sample of male in Pilica river}
-  \item{P5Wm}{5th gut sample of male in Pilica river}
-  \item{P6Wm}{6th gut sample of male in Pilica river}
-  \item{S1Wf}{1st gut sample of female in San river}
-  \item{S2Wf}{2nd gut sample of female in San river}
-  \item{S3Wf}{3rd gut sample of female in San river}
-  \item{S4Wm}{4th gut sample of male in San river}
-  \item{S5Wm}{5th gut sample of male in San river}
-  \item{S6Wm}{6th gut sample of male in San river}
-            
+  \item{1st digit}{C for Czarna Hancza, P for Pilica river, S for San river}
+  \item{2nd digit}{index of individuals}
+  \item{3rd digit}{alias for different tissues: W for gut, G for gonads, M for muscles, N for foot, P for mantle, S for gills}
+  \item{4th digit}{f for female, m for male}
 }
 }
 \usage{
 pomus
 }
 \description{
-OTU table for 18 mussel samples from 3 Polish rivers
+OTU table for 108 mussel samples from 3 Polish rivers: Czarna Hancza, Pilica river and San river. There are 693 OTUs, in particular, the microbial communities from gut, gonad, muscle, foot, mantle and gill tissues of 18 individuals from the 3 Unio crassus populations living in different ecological conditions are investigated. 3 male and 3 female individuals for each population were sampled in 2018 from 3 rivers in Poland with significantly distinctive ecological characteristics.
 }
 \keyword{datasets}
