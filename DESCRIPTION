@@ -8,7 +8,7 @@ Maintainer: Jun Li <yewei369@gmail.com>
 Description: different OTU classification methods based on Gaussian assumption for non-zero OTUs
 License: GPL-3
 Encoding: UTF-8
-suggests:
+Imports:
     knitr,
     rmarkdown,
     dplyr,

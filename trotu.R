@@ -27,9 +27,13 @@
 #' targets, vector of target names
 #' vs, pairs of targets
 #' ana1, a list of shrinked OTU table for each target, estimated covariance matrix "Sigma", estimated precision matrix "Omega", cross validation error, and accuracies
+#' @references 
+#' A. Kaul, O. Davidov and S. D. Peddada, "Structural zeroes in high-dimensional data with applications to microbiome studies", Biostatistics, vol. 18, no. 3, p. 422-433, 2017. 
+#' Jun Li, "Classification of microbiome data with structural zeroes and small samples", master thesis at Link\"{o}ping University, 2021
 #' @examples
-#' ha<-trotu(pomus,tissue %in% c("gut","foot","gonads","muscles","mantle","gills"),
-#'           thr=0,target="river",pairs=c("C","P"),del.otu=F,del.sam=T,nvar=75,
+#' da<-simotu.gaus(50,700,3,nref=5,full.mean=10000,unif.min=0,unif.max=0.4,seed=1234) 
+#' ha<-trotu(da,Target %in% c("target1","target2","target3"),
+#'           thr=0,target="Target",pairs=c("target1","target2","target3"),del.otu=F,del.sam=T,nvar=75,
 #'           lambda=seq(0.001,0.3,by=0.01),nsim=3,seed=F,nfold=5, nsampling=1, 
 #'           test.per=0.2,norm.mode=1,shrink.mode=1,esti.mode=2,cl.mode=0)
 #'
