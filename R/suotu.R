@@ -1,12 +1,9 @@
-#' Split datasets
+#' Summary of classification accuracy
 #' 
-#' Split dataset into training/validation/test sets
+#' Summary of accuracies for each target pair
 #' 
-#' @param data,
-#' @param labels,
-#' @param vec,
-#' @return 
-#' @examples 
+#' @param ha, an returned object from function "trotu"
+#' @return summary of accuracies for each pair
 #' 
 
 

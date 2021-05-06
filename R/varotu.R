@@ -1,12 +1,11 @@
-#' Split datasets
+#' Variance of OTU
 #' 
-#' Split dataset into training/validation/test sets
+#' Calculate sample covariance matrix for a given target pair
 #' 
-#' @param data,
-#' @param labels,
-#' @param vec,
-#' @return 
-#' @examples 
+#' @param da, dataset
+#' @param ..., mean values by esti.mode=2, available only when esti.mode=2
+#' @param esti.mode, digits for covariance estimating method, 0 for Kaul's method, 1/2/3 for Jun Li's 1st/2nd/3rd method
+#' @return covariance matrix of sample OTUs
 #' 
 
 

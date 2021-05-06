@@ -1,20 +1,21 @@
-#' Split datasets
+#' Simulation data with Gaussian distribution
 #' 
-#' Split dataset into training/validation/test sets
+#' Generate simulation data with Dirichlet distribution
 #' 
-#' @param data,
-#' @param labels,
-#' @param vec,
-#' @return 
+#' @param n, sample size for each target
+#' @param p, number of OTUs
+#' @param t, number of targets
+#' @param ref, index of reference OTUs
+#' @param seed, index of the seed, if F (default) no seed is set
+#' @param unif.min, min limit of Uniform dist for non-zero probability
+#' @param unif.max, max limit of Uniform dist for non-zero probability
+#' @return a list of OTU table and meta information
 #' @examples 
-#' 
+#' simotu.diri40(36,p=693,t=3,ref=c(1,214,490,512,513),seed=1234,unif.min=0.9,unif.max=0.95)
 
 
 simotu.diri40<-function(n,p=693,t=3,ref=c(1,214,490,512,513),seed=F,unif.min=0,unif.max=0.35){ ## simulate OTUs
-  ## n, sample size for each target
-  ## p, number of OTUs
-  ## t, number of targets
-  ## this simulation model has extremely high proportion of zeros around 99.5%
+
   
   meta<-data.frame(SampleID=NULL,Target=NULL)
   otu<-data.frame(OTU.ID=as.factor(c(1:p)))

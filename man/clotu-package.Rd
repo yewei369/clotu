@@ -1,6 +1,4 @@
-\name{clotu}
-\alias{clotu-package}
-\alias{clotu}
+\name{clotu-package}
 \docType{package}
 \title{
 \packageTitle{clotu}

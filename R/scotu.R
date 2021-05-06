@@ -1,12 +1,11 @@
-#' Split datasets
+#' Scaling OTUs
 #' 
-#' Split dataset into training/validation/test sets
+#' Scale dataset by substructing mean values
 #' 
-#' @param data,
-#' @param labels,
-#' @param vec,
-#' @return 
-#' @examples 
+#' @param da, dataset
+#' @param mu, mean values of OTUs
+#' @param esti.mode, digits for covariance estimating method, 0 for Kaul's method, 1/2/3 for Jun Li's 1st/2nd/3rd method
+#' @return scaled counts for all observations
 #' 
 
 

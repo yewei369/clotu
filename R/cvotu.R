@@ -1,12 +1,13 @@
-#' Split datasets
+#' Cross validation of OTUs
 #' 
-#' Split dataset into training/validation/test sets
+#' Implement cross valildation and record the validation error for each iteration and lambda 
 #' 
-#' @param data,
-#' @param labels,
-#' @param vec,
-#' @return 
-#' @examples 
+#' @param da, dataset
+#' @param ..., mean values by esti.mode=2, available only when esti.mode=2
+#' @param lambda, the range of lambda for cross validation, default value of seq(0.001,0.3,by=0.01)
+#' @param nfold, number of folds for cross validation, default value of 6
+#' @param esti.mode, digits for covariance estimating method, 0 for Kaul's method, 1/2/3 for Jun Li's 1st/2nd/3rd method
+#' @return the validation error for each iteration and lambda 
 #' 
 
 

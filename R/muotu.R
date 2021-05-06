@@ -1,18 +1,15 @@
-#' Split datasets
+#' Mean of OTU
 #' 
-#' Split dataset into training/validation/test sets
+#' Calculate mean value of target groups
 #' 
-#' @param data,
-#' @param labels,
-#' @param vec,
-#' @return 
-#' @examples 
+#' @param da, dataset
+#' @param esti.mode, digits for covariance estimating method, 0 for Kaul's method, 1/2/3 for Jun Li's 1st/2nd/3rd method
+#' @return mean values for each OTU
 #' 
 
 
-muotu<-function(da,esti.mode=0){## Mean trva datasets through substracting mean values
-  ## da1/da2, train+valid datasets of target groups
-  ## mode, 0-Abhishek; 1-JunLi
+muotu<-function(da,esti.mode=0){
+
   d<-dim(da)[1]
   if(esti.mode %in% c(0,1)){
     pres<-present(da)

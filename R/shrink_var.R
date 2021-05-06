@@ -14,8 +14,8 @@
 #' al<-data_extract(da,Target %in% c("target1","target2","target3")) # no otu names
 #' ana0<-zomotu(al,0) ## delete otus not present in any sample, no otu names
 #' ta<-target_split(da,ana0$otu,"Target")
-#' ta_norm<-normalizer(ta,0,ana0$ref,T,T)
-#' 
+#' ta_norm<-normalizer(ta,0,1,ana0$ref,FALSE,TRUE)
+#' shrink_var(ta_norm[[1]],ta_norm[[2]],0,75,method=1)
 
 
 shrink_var<-function(da1,da2,thr,nvar,pair=c(1,2),method=0){## shrink number of variables/OTUs

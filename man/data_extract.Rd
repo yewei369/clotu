@@ -18,5 +18,6 @@ a matrix of OTUs meeting the specified condition
 Extract OTU data for specified condition
 }
 \examples{
-ha<-data_extract(pomus,tissue=="gut") ## return a matrix with 693 OTUs and 18 observations
+da<-simotu.gaus(50,700,3,nref=5,full.mean=10000,unif.min=0,unif.max=0.4,seed=1234)  
+ha<-data_extract(da,Target \%in\% c("target1","target2","target3")) ## return a matrix with 693 OTUs and 18 observations
 }

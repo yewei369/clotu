@@ -5,11 +5,11 @@
 #' @param n, sample size for each target
 #' @param p, number of OTUs
 #' @param t, number of targets
-#' @param nref,
-#' @param unif.min,
-#' @param unif.max,
-#' @param full.mean,
-#' @param ful.sd,
+#' @param nref, number of reference OTUs
+#' @param unif.min, min limit of Uniform dist for non-zero probability
+#' @param unif.max, max limit of Uniform dist for non-zero probability
+#' @param full.mean, full range of mean value of total counts
+#' @param full.sd, full range of standard deviation of total counts
 #' @param seed, index of the seed, if F (default) no seed is set
 #' @return a list of OTU table and meta information
 #' @examples 
@@ -38,7 +38,7 @@ simotu.gaus<-function(n,p,t,nref=3,unif.min=0,unif.max=0.35,full.mean=20000,full
       sub_sigma<-sigma[ind,ind]
       if(length(ind)>0){
         if(length(ind)==1) sam<-rnorm(1,mean=rep(0,length(ind)),sd=sqrt(sub_sigma)) else
-          sam<-rmvnorm(1,mean=rep(0,length(ind)),sigma=sub_sigma)
+          sam<-mvtnorm::rmvnorm(1,mean=rep(0,length(ind)),sigma=sub_sigma)
         
         sam<-round(sam*ref.sd[ind]+ref.mean[ind],0)
         #if(min(sam)<0) sam<-sam-min(sam)+1

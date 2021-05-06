@@ -14,15 +14,11 @@
 #' al<-data_extract(da,Target %in% c("target1","target2","target3")) # no otu names
 #' ana0<-zomotu(al,0) ## delete otus not present in any sample, no otu names
 #' ta<-target_split(da,ana0$otu,"Target")
-#' ta_norm<-normalizer(ta,0,ana0$ref,F,T)
+#' ta_norm<-normalizer(ta,0,0,ana0$ref,FALSE,TRUE)
 
 
 normalizer<-function(data_tar,thr,method=0,ref,del.otu=TRUE,del.sam=TRUE){
-  ## method: 0 for Abhishek method, ie using the first reference OTU
-  ##         1 for JunLi method, ie using the mean value of all reference OTU
-  ## ref:    the reference OTUs
-  ## del:    TRUE when deleting the samples where all normalized counts are zeros
-  ## 
+
   re<-data_tar
   for(i in 1:length(data_tar)){
     da<-data_tar[[i]]
