@@ -33,7 +33,7 @@
 #' @examples
 #' da<-simotu.gaus(50,700,3,nref=5,full.mean=10000,unif.min=0,unif.max=0.4,seed=1234) 
 #' ha<-trotu(da,Target %in% c("target1","target2","target3"),
-#'           thr=0,target="Target",pairs=c("target1","target2"),del.otu=F,del.sam=T,nvar=75,
+#'           thr=0,target="Target",pairs=c("target1","target2"),del.otu=FALSE,del.sam=TRUE,nvar=75,
 #'           lambda=seq(0.001,0.3,by=0.01),nsim=3,seed=F,nfold=5, nsampling=1, 
 #'           test.per=0.2,norm.mode=1,shrink.mode=1,esti.mode=2,cl.mode=0)
 #'
