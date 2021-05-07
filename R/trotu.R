@@ -33,17 +33,17 @@
 #' @examples
 #' da<-simotu.gaus(50,700,3,nref=5,full.mean=10000,unif.min=0,unif.max=0.4,seed=1234) 
 #' ha<-trotu(da,Target %in% c("target1","target2","target3"),
-#'           thr=0,target="Target",pairs=c("target1","target2"),del.otu=F,del.sam=T,nvar=75,
-#'           lambda=seq(0.001,0.3,by=0.01),nsim=3,seed=F,nfold=5, nsampling=1, 
+#'           thr=0,target="Target",pairs=c("target1","target2"),del.otu=FALSE,del.sam=TRUE,nvar=75,
+#'           lambda=seq(0.001,0.3,by=0.01),nsim=3,seed=FALSE,nfold=5, nsampling=1, 
 #'           test.per=0.2,norm.mode=1,shrink.mode=1,esti.mode=2,cl.mode=0)
 #'
 
 
 
-trotu<-function(data,...,thr=0,target,pairs=F,
-                del.otu=T,del.sam=T,nvar=F,
+trotu<-function(data,...,thr=0,target,pairs=FALSE,
+                del.otu=TRUE,del.sam=TRUE,nvar=FALSE,
                 lambda=seq(0.001,0.3,by=0.01),nsim=25,
-                seed=F,nfold=6, nsampling=20, test.per=0.2,
+                seed=FALSE,nfold=6, nsampling=20, test.per=0.2,
                 norm.mode=0,shrink.mode=0,esti.mode=0,cl.mode=0){
 
   tic<-Sys.time()
@@ -109,18 +109,18 @@ trotu<-function(data,...,thr=0,target,pairs=F,
         
         if(esti.mode==0) { ## Abhishek: mean value based on each target
           sc1<-scotu(da1$trva,mu1,esti.mode);sc2<-scotu(da2$trva,mu2,esti.mode)
-          cver[i,,s]<-cvotu(cbind(sc1,sc2),lambda,nfold,d,I,esti.mode) }
+          cver[i,,s]<-cvotu(cbind(sc1,sc2),lambda=lambda,nfold=nfold,esti.mode=esti.mode) }
         else if(esti.mode==1) {## mean value based on whole trva dataset
           mu<-muotu(da,esti.mode) 
           sc<-scotu(da,mu,esti.mode)
-          cver[i,,s]<-cvotu(sc,lambda,nfold,d,I,esti.mode) }
+          cver[i,,s]<-cvotu(sc,lambda=lambda,nfold=nfold,esti.mode=esti.mode) }
         else if(esti.mode==2) {## customized mean, bilateral variance
           mu<-muotu(da,esti.mode) 
-          cver[i,,s]<-cvotu(da,mu,lambda,nfold,d,I,esti.mode) }
+          cver[i,,s]<-cvotu(da,mu,lambda=lambda,nfold=nfold,esti.mode=esti.mode) }
         else if(esti.mode==3){## blanket mean values
           mu<-muotu(da,esti.mode) 
           sc<-scotu(da,mu,esti.mode)
-          cver[i,,s]<-cvotu(sc,lambda,nfold,d,I,esti.mode) }
+          cver[i,,s]<-cvotu(sc,lambda=lambda,nfold=nfold,esti.mode=esti.mode) }
       }
       
 
@@ -129,10 +129,10 @@ trotu<-function(data,...,thr=0,target,pairs=F,
       best_lambda<-which.min(mu_cver)
       
       ## precision estimates, estimate Sigma+Omega matrix
-      if(esti.mode %in% c(0,1,3)) va<-varotu(da,esti.mode) 
-      else if(esti.mode==2) va<-varotu(da,mu,esti.mode)
-      tryCatch(fit<-clime(va,lambda,sigma=T),
-               error=function(e){fit<<-clime(va,lambda,sigma=T,perturb=F,linsolver="sim")})
+      if(esti.mode %in% c(0,1,3)) va<-varotu(da,esti.mode=esti.mode) 
+      else if(esti.mode==2) va<-varotu(da,mu,esti.mode=esti.mode)
+      tryCatch(fit<-clime::clime(va,lambda,sigma=TRUE),
+               error=function(e){fit<<-clime::clime(va,lambda,sigma=TRUE,perturb=FALSE,linsolver="sim")})
       omega[,,s]<-fit$Omega[[best_lambda]]
       sigma[,,s]<-solve(omega[,,s])
       

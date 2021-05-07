@@ -9,13 +9,13 @@ trotu(
   ...,
   thr = 0,
   target,
-  pairs = F,
-  del.otu = T,
-  del.sam = T,
-  nvar = F,
+  pairs = FALSE,
+  del.otu = TRUE,
+  del.sam = TRUE,
+  nvar = FALSE,
   lambda = seq(0.001, 0.3, by = 0.01),
   nsim = 25,
-  seed = F,
+  seed = FALSE,
   nfold = 6,
   nsampling = 20,
   test.per = 0.2,
@@ -77,8 +77,8 @@ For each target variable pair, divide the given OTU dataset into "trva" (includi
 \examples{
 da<-simotu.gaus(50,700,3,nref=5,full.mean=10000,unif.min=0,unif.max=0.4,seed=1234) 
 ha<-trotu(da,Target \%in\% c("target1","target2","target3"),
-          thr=0,target="Target",pairs=c("target1","target2"),del.otu=F,del.sam=T,nvar=75,
-          lambda=seq(0.001,0.3,by=0.01),nsim=3,seed=F,nfold=5, nsampling=1, 
+          thr=0,target="Target",pairs=c("target1","target2"),del.otu=FALSE,del.sam=TRUE,nvar=75,
+          lambda=seq(0.001,0.3,by=0.01),nsim=3,seed=FALSE,nfold=5, nsampling=1, 
           test.per=0.2,norm.mode=1,shrink.mode=1,esti.mode=2,cl.mode=0)
 
 }
