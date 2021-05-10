@@ -8,7 +8,7 @@
 #' @param nvar, number of OTUs after shrinking
 #' @param pair, character vector of specified target pairs, should be of length 2
 #' @param method, digits for shrinking method, 0 for Kaul's method, 1 for Jun Li's
-#' @return a list of shrinked OTU tables for each target
+#' @return a list of shrinked OTU tables for each target and the index of significant OTUs
 #' @examples
 #' da<-simotu.gaus(50,700,3,nref=5,full.mean=10000,unif.min=0,unif.max=0.4,seed=1234)  
 #' al<-data_extract(da,Target %in% c("target1","target2","target3")) # no otu names
@@ -31,8 +31,8 @@ shrink_var<-function(da1,da2,thr,nvar,pair=c(1,2),method=0){## shrink number of 
   t=2*pt(abs(sta), df, lower.tail=FALSE)
   signif_ind<-order(t)[1:nvar]
   ##### added after simulation test
-  re<-list(t(zomotu(t(da1[signif_ind,]),thr)$otu),t(zomotu(t(da2[signif_ind,]),thr)$otu ))
+  re<-list(t(zomotu(t(da1[signif_ind,]),thr)$otu),t(zomotu(t(da2[signif_ind,]),thr)$otu ),ind=signif_ind)
   #re<-list(da1[signif_ind,],da2[signif_ind,])
-  names(re)<-pair
+  names(re)[1:2]<-pair
   
   return (re)}

@@ -47,7 +47,7 @@ simotu.diri40<-function(n,p=693,t=3,ref=c(1,214,490,512,513),seed=F,unif.min=0,u
       
       sc<-round(rnorm(1,mu.sum[i],sd.sum[i]),0) # scale of sample ## mu.sum[i]##
       #prob<-as.vector(rdirichlet(1,alpha_sub))
-      prob<-as.vector(rdirichlet(1,alpha))
+      prob<-as.vector(gtools::rdirichlet(1,alpha))
       prob_sub<-prob[ind]/sum(prob[ind])
       sam<-ceiling(prob_sub*sc) 
       

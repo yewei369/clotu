@@ -15,8 +15,9 @@
 clotu<-function(da,sigma,mu1,mu2,esti.mode=0,cl.mode=0){  ## classification
   ##cl.mode: 0-formular in code; 1-formular in paper
   ind<-which(da!=0)
+  
+  if(length(ind)>0){
   va<-sigma[ind,ind] ## variance for non-zero OTUs
-  tom<<-va
   prec<-solve(va) ## precision
   
   sc1<-da[ind]-mu1[ind];sc2<-da[ind]-mu2[ind]
@@ -29,5 +30,6 @@ clotu<-function(da,sigma,mu1,mu2,esti.mode=0,cl.mode=0){  ## classification
   tryCatch({if(cl1>cl2) return(1) else
     return (2)},
     error=function(e) {#message(paste("Comparing between ",cl1," and ",cl2," is not valid!",sep=""))
-      return(sample(2,1))})
+      return(sample(2,1))})  } else {
+        return(sample(2,1))}
 }  

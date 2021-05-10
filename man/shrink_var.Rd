@@ -20,7 +20,7 @@ shrink_var(da1, da2, thr, nvar, pair = c(1, 2), method = 0)
 \item{method, }{digits for shrinking method, 0 for Kaul's method, 1 for Jun Li's}
 }
 \value{
-a list of shrinked OTU tables for each target
+a list of shrinked OTU tables for each target and the index of significant OTUs
 }
 \description{
 Split dataset into training/validation/test sets
