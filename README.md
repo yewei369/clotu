@@ -9,6 +9,7 @@ To reproduce the results in section 5:
    majorcl(tr,shrink.mode=0,esti.mode=2)
          
 2. Classification of simulation data by Gaussian distribution
+
    da<-simotu.gaus(num,700,3,nref=5,full.mean=10000,unif.min=0,unif.max=0.4,seed=1234) ##num is sample size for each target
    tr<-trotu(da,Target %in% c("target1","target2","target3"),thr=0,target="Target",
          pairs=c("target1","target2","target3"),del.otu=F,del.sam=T,nvar=75,
@@ -17,6 +18,7 @@ To reproduce the results in section 5:
    majorcl(tr,shrink.mode=1,esti.mode=2)
    
 3. Classification of simulation data by Dirichlet distribution (this simulation model tries to mimic mussel data, therefore this function will not work correctly after download due to error on missing "pomus" data. For research convinience, please refer to to the function code)
+
    da<-simotu.diri40(num,p=693,t=3,ref=c(1,214,490,512,513),seed=1234,unif.min=0.9,unif.max=0.95)  ##num is sample size for each target
    tr<-trotu(da,Target %in% c("target1","target2","target3"),thr=0,target="Target",
          pairs=c("target1","target2","target3"),del.otu=F,del.sam=T,nvar=75,
