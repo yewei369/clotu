@@ -1,4 +1,4 @@
-clotu is a public repository developped from an original master thesis "Classification of microbiome data with structural zeroes and small samples"
+clotu is a public repository developped from an original master thesis "Classification of microbiome data with structural zeroes and small samples" published at DiVA: https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1561382&dswid=4502
 
 To reproduce the results in section 5:
 1. Classification of Mussel data (run the following code with corresponding digits of norm.mode/shrink.mode/esti.mode/cl.mode, "pomus" is the mussel data which due to agreement with data owner is not public available yet)
